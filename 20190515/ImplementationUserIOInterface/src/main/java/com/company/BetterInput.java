@@ -32,7 +32,7 @@ public class BetterInput implements UserIO {
             userInput = Long.parseLong(myScanner.nextLine());
         } catch (Exception e) {
             System.out.println("Something went wrong.");
-            readInt(prompt);
+            readLong(prompt);
         }
         return userInput;
     }
@@ -45,7 +45,7 @@ public class BetterInput implements UserIO {
             userInput = Double.parseDouble(myScanner.nextLine());
         } catch (Exception e) {
             System.out.println("Something went wrong.");
-            readInt(prompt);
+            readDouble(prompt);
         }
         return userInput;
     }
@@ -58,7 +58,7 @@ public class BetterInput implements UserIO {
             userInput = Float.parseFloat(myScanner.nextLine());
         } catch (Exception e) {
             System.out.println("Something went wrong.");
-            readInt(prompt);
+            readFloat(prompt);
         }
         return userInput;
     }
