@@ -230,13 +230,11 @@ public class Menu {
 
     public int getInt(){
 
-        Scanner myScanner = new Scanner(System.in);
-        String returnValue =myScanner.nextLine();
+        String returnValue = getStr();
         while (!isNumber(returnValue)){
             System.out.println("Enter a number!");
-            returnValue =myScanner.nextLine();
+            returnValue =getStr();
         }
-
         return Integer.parseInt(returnValue);
     }
 
@@ -250,8 +248,7 @@ public class Menu {
     static boolean isNumber(String s)
     {
         for (int i = 0; i < s.length(); i++)
-            if (Character.isDigit(s.charAt(i))
-                    == false)
+            if (!Character.isDigit(s.charAt(i)))
                 return false;
 
         return true;
