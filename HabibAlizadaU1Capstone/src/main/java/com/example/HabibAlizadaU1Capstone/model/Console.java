@@ -18,7 +18,7 @@ public class Console {
     private Double price;
     @PositiveOrZero
     @NotNull
-    private int quantity;
+    private Integer quantity;
 
     public int getConsoleId() {
         return consoleId;
@@ -68,11 +68,11 @@ public class Console {
         this.price = price;
     }
 
-    public int getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
@@ -82,12 +82,12 @@ public class Console {
         if (o == null || getClass() != o.getClass()) return false;
         Console console = (Console) o;
         return consoleId == console.consoleId &&
-                quantity == console.quantity &&
                 model.equals(console.model) &&
                 manufacturer.equals(console.manufacturer) &&
                 memoryAmount.equals(console.memoryAmount) &&
                 processor.equals(console.processor) &&
-                price.equals(console.price);
+                price.equals(console.price) &&
+                quantity.equals(console.quantity);
     }
 
     @Override

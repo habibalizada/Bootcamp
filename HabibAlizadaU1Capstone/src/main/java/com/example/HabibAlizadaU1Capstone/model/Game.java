@@ -19,7 +19,8 @@ public class Game {
     @NotNull
     private String studio;
     @PositiveOrZero
-    private int quantity;
+    private Integer quantity;
+
 
     public int getGameId() {
         return gameId;
@@ -69,13 +70,14 @@ public class Game {
         this.studio = studio;
     }
 
-    public int getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -83,12 +85,12 @@ public class Game {
         if (o == null || getClass() != o.getClass()) return false;
         Game game = (Game) o;
         return gameId == game.gameId &&
-                quantity == game.quantity &&
                 title.equals(game.title) &&
                 esrbRating.equals(game.esrbRating) &&
                 description.equals(game.description) &&
                 price.equals(game.price) &&
-                studio.equals(game.studio);
+                studio.equals(game.studio) &&
+                quantity.equals(game.quantity);
     }
 
     @Override

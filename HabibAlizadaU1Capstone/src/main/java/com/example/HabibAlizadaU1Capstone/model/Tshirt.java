@@ -18,8 +18,7 @@ public class Tshirt {
     private Double price;
     @PositiveOrZero
     @NotNull
-    private int quantity;
-
+    private Integer quantity;
 
     public int gettShirtId() {
         return tShirtId;
@@ -61,11 +60,11 @@ public class Tshirt {
         this.price = price;
     }
 
-    public int getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
@@ -75,11 +74,11 @@ public class Tshirt {
         if (o == null || getClass() != o.getClass()) return false;
         Tshirt tshirt = (Tshirt) o;
         return tShirtId == tshirt.tShirtId &&
-                quantity == tshirt.quantity &&
                 size.equals(tshirt.size) &&
                 color.equals(tshirt.color) &&
                 description.equals(tshirt.description) &&
-                price.equals(tshirt.price);
+                price.equals(tshirt.price) &&
+                quantity.equals(tshirt.quantity);
     }
 
     @Override
