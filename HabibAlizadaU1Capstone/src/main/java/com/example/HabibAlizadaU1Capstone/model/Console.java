@@ -1,18 +1,23 @@
 package com.example.HabibAlizadaU1Capstone.model;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.*;
 import java.util.Objects;
 
 public class Console {
+    @NotNull
     private int consoleId;
+    @NotNull
     private String model;
+    @NotNull
     private String manufacturer;
     private String memoryAmount;
     private String processor;
+    @NotNull
+    @Min(0)
+    @Digits(integer = 3, fraction = 2)
+    private Double price;
     @PositiveOrZero
-    private double price;
-    @PositiveOrZero
+    @NotNull
     private int quantity;
 
     public int getConsoleId() {
@@ -55,11 +60,11 @@ public class Console {
         this.processor = processor;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -77,12 +82,12 @@ public class Console {
         if (o == null || getClass() != o.getClass()) return false;
         Console console = (Console) o;
         return consoleId == console.consoleId &&
-                Double.compare(console.price, price) == 0 &&
                 quantity == console.quantity &&
                 model.equals(console.model) &&
                 manufacturer.equals(console.manufacturer) &&
                 memoryAmount.equals(console.memoryAmount) &&
-                processor.equals(console.processor);
+                processor.equals(console.processor) &&
+                price.equals(console.price);
     }
 
     @Override

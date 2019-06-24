@@ -1,18 +1,25 @@
 package com.example.HabibAlizadaU1Capstone.model;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.*;
 import java.util.Objects;
 
 public class Tshirt {
+    @NotNull
     private int tShirtId;
+    @NotNull
     private String size;
+    @NotNull
     private String color;
+    @NotNull
     private String description;
+    @NotNull
+    @Min(0)
+    @Digits(integer = 3, fraction = 2)
+    private Double price;
     @PositiveOrZero
-    private double price;
-    @PositiveOrZero
+    @NotNull
     private int quantity;
+
 
     public int gettShirtId() {
         return tShirtId;
@@ -46,11 +53,11 @@ public class Tshirt {
         this.description = description;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -68,11 +75,11 @@ public class Tshirt {
         if (o == null || getClass() != o.getClass()) return false;
         Tshirt tshirt = (Tshirt) o;
         return tShirtId == tshirt.tShirtId &&
-                Double.compare(tshirt.price, price) == 0 &&
                 quantity == tshirt.quantity &&
                 size.equals(tshirt.size) &&
                 color.equals(tshirt.color) &&
-                description.equals(tshirt.description);
+                description.equals(tshirt.description) &&
+                price.equals(tshirt.price);
     }
 
     @Override

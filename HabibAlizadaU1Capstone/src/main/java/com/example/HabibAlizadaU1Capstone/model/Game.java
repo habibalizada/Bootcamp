@@ -1,16 +1,22 @@
 package com.example.HabibAlizadaU1Capstone.model;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.*;
 import java.util.Objects;
 
 public class Game {
+    @NotNull
     private int gameId;
+    @NotNull
     private String title;
+    @NotNull
     private String esrbRating;
+    @NotNull
     private String description;
-    @PositiveOrZero
-    private double price;
+    @Min(0)
+    @Digits(integer = 3, fraction = 2)
+    @NotNull
+    private Double price;
+    @NotNull
     private String studio;
     @PositiveOrZero
     private int quantity;
@@ -47,11 +53,11 @@ public class Game {
         this.description = description;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -77,11 +83,11 @@ public class Game {
         if (o == null || getClass() != o.getClass()) return false;
         Game game = (Game) o;
         return gameId == game.gameId &&
-                Double.compare(game.price, price) == 0 &&
                 quantity == game.quantity &&
                 title.equals(game.title) &&
                 esrbRating.equals(game.esrbRating) &&
                 description.equals(game.description) &&
+                price.equals(game.price) &&
                 studio.equals(game.studio);
     }
 
