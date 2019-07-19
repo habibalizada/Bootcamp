@@ -1,12 +1,15 @@
 package com.trilogyed.post.model;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.Objects;
 
 public class Post {
 
     private int postID;
+    @NotNull(message = "Post date cannot be null")
     private LocalDate postDate;
+    @NotNull(message = "Poster name cannot be null")
     private String posterName;
     private String post;
 

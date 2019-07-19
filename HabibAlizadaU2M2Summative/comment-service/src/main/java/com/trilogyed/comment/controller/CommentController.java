@@ -33,7 +33,7 @@ public class CommentController {
         return comment;
     }
 
-    @GetMapping("/comment/{post_id}")
+    @GetMapping("/post/{post_id}")
     @ResponseStatus(HttpStatus.OK)
     public List<Comment> getCommentForPostId(@PathVariable("post_id") int post_id){
         List<Comment> commentList = commentDao.getAllCommentsByPostId(post_id);

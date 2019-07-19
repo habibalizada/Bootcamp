@@ -4,6 +4,7 @@ import com.trilogyed.post.dao.PostDaoJdbcTemplateImpl;
 import com.trilogyed.post.exception.NotFoundException;
 import com.trilogyed.post.model.Post;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +12,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+@RefreshScope
 public class PostController {
 
     @Autowired
@@ -26,13 +28,13 @@ public class PostController {
     @ResponseStatus(HttpStatus.OK)
     public Post getPost(@PathVariable("id") int id) {
         Post post = postDao.getPost(id);
-        if (post == null){
-            throw new NotFoundException("No note was found with note_id " + id);
-        }
+//        if (post == null){
+//            throw new NotFoundException("No post was found with post_id " + id);
+//        }
         return post;
     }
 
-    @RequestMapping(value = "/posts/poster/{poster_name}", method = RequestMethod.GET)
+    @RequestMapping(value = "/posts/user/{poster_name}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public List<Post> getPostByPoster(@PathVariable("poster_name") String poster_name){
         List<Post> postList = postDao.getPostByPoster(poster_name);
@@ -55,13 +57,11 @@ public class PostController {
         if (id != post.getPostID()){
             throw new IllegalArgumentException("Post ID on path must match the ID in the Post object");
         }
-
     }
 
     @RequestMapping(value = "/posts/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public void deletePost(@PathVariable int id) {
         postDao.deletePost(id);
-
     }
 }

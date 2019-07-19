@@ -63,8 +63,8 @@ public class PostDaoJdbcTemplateImpl implements PostDao{
     }
 
     @Override
-    public List<Post> getPostByPoster(String poster_name) {
-        List<Post> postList = jdbcTemplate.query(SELECT_ALL_POSTS_BY_POSTER_NAME, this::mapRowToPost, poster_name);
+    public List<Post> getPostByPoster(String posterName) {
+        List<Post> postList = jdbcTemplate.query(SELECT_ALL_POSTS_BY_POSTER_NAME, this::mapRowToPost, posterName);
         return postList;
     }
 

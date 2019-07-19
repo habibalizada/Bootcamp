@@ -11,5 +11,5 @@ import java.util.List;
 @FeignClient(name = "comment-service")
 public interface CommentClient {
     @RequestMapping(value = "comment/post/{post_id}" , method = RequestMethod.GET)
-    public List<Comment> getCommentsByPostId(@PathVariable("post_id") int id);
+    public List<Comment> getCommentsByPostId(@PathVariable int post_id);
 }
